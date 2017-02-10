@@ -3,15 +3,23 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 
 const app = express()
+
+const allowCrossDomain = (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+}
+
+app.use(allowCrossDomain)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
 app.get('/api/users', (req, res) => {
-  usersApi.getUsers().then(data => {
-    const msg = data
-    res.status(200).json({info: 'success', data: msg})
+  usersApi.getUsers().then(users => {
+    res.status(200).json({info: 'success', users})
   }).catch(err => res.status(400).json({err}))
 });
 
