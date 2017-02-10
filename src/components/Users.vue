@@ -9,28 +9,36 @@
 				</div>
 			</div>
 		</section>
-    <button class="button is-dark" @click="fetchUsers" >Fetch User Data</button>
+    <template v-for="user in users">
+      <user-list-item :user="user"></user-list-item>
+    </template>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import UserListItem from './UserListItem'
+
 export default {
   name: 'hello',
+  components: { UserListItem },
   data () {
     return {
-      title: 'Users List View',
-      users: []
+      title: 'Users List View'
     }
   },
-  compouted: {
-    getUsers () {
-      this.$store.getters.allUsers
-    }
+  computed: {
+    ...mapGetters({
+      users: 'allUsers'
+    })
   },
   methods: {
     fetchUsers () {
       this.$store.dispatch({ type: 'fetchUsers' })
     }
+  },
+  created () {
+    this.fetchUsers()
   }
 }
 </script>

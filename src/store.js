@@ -16,10 +16,19 @@ export const store = new Vuex.Store({
     }
   },
 
+  mutations: {
+    recievedUsers (state, data) {
+      state.users = data.users
+    }
+  },
+
   actions: {
     fetchUsers (context) {
-      console.log('Store got fetchUsers action!')
       usersApi.getAllUsers()
+        .then(data => {
+          context.commit('recievedUsers', data)
+        })
+        .catch(err => console.log(err))
     }
   }
 })
