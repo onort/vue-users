@@ -10,7 +10,11 @@
 			</div>
 		</section>
     <template v-for="user in users">
-      <user-list-item :user="user"></user-list-item>
+     <div class="columns is-mobile users-list">
+        <div class="column is-10 is-offset-1">
+        <user-list-item :user="user"></user-list-item>
+        </div>
+      </div>
     </template>
 	</div>
 </template>
@@ -44,5 +48,7 @@ export default {
 </script>
 
 <style scoped>
-
+.users-list {
+  margin-top: 10px;
+}
 </style>
