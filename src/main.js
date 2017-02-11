@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import { store } from './store'
 import 'bulma/css/bulma.css'
+import 'font-awesome/css/font-awesome.min.css'
 
 /* eslint-disable no-new */
 new Vue({

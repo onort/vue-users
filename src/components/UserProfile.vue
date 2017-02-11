@@ -4,10 +4,10 @@
 			<div class="hero-body">
 				<div class="container">
           <template v-if="isLoading">
-            <h1 class="title">Loading...</h3>
+            <h1 class="title is-1">Loading...</h3>
           </template>
-          <h1 class="title">{{ fullname }}</h1>
-          <h3 class="subtitle">{{ user.location.city }}</h3>
+          <h2 class="title is-2">{{ fullname }}</h1>
+          <h3 class="subtitle is-3">{{ user.location.city }}</h3>
 				</div>
 			</div>
 		</section>

@@ -4,9 +4,9 @@
 			<div class="hero-body">
 				<div class="container">
           <template v-if="isLoading">
-            <h1 class="title">Loading...</h3>
+            <h1 class="title is-2">Loading...</h3>
           </template>
-          <h1 class="title">
+          <h1 class="title is-2">
             {{ title }}
           </h1>
 				</div>
@@ -14,7 +14,7 @@
 		</section>
     <template v-for="user in users">
      <div class="columns is-mobile users-list">
-        <div class="column is-10 is-offset-1">
+        <div class="column is-8-tablet is-offset-2-tablet is-10-mobile is-offset-1-mobile">
         <user-list-item :user="user"></user-list-item>
         </div>
       </div>
