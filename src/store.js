@@ -8,10 +8,14 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     users: [],
-    singleUser: {}
+    singleUser: { name: { first: '', last: '' }, location: { city: '' } },
+    isLoading: false
   },
 
   getters: {
+    isLoading (state) {
+      return state.isLoading
+    },
     allUsers (state) {
       return state.users
     },
@@ -21,26 +25,33 @@ export const store = new Vuex.Store({
   },
 
   mutations: {
+    loadingState (state, { isLoading }) {
+      state.isLoading = isLoading
+    },
     recievedUsers (state, data) {
       state.users = data.users
     },
-    singleUser (state, data) {
-      state.singleUser = data.user
+    singleUser (state, { user }) {
+      state.singleUser = user
     }
   },
 
   actions: {
     fetchUsers (context) {
+      context.commit('loadingState', { isLoading: true })
       usersApi.getAllUsers()
         .then(data => {
           context.commit('recievedUsers', data)
+          context.commit('loadingState', { isLoading: false })
         })
         .catch(err => console.log(err))
     },
-    fetchUserByUsername (context, payload) {
-      usersApi.getUserByUsername(payload.username)
+    fetchUserByUsername (context, { username }) {
+      context.commit('loadingState', { isLoading: true })
+      usersApi.getUserByUsername(username)
         .then(data => {
           context.commit('singleUser', data)
+          context.commit('loadingState', { isLoading: false })
         })
         .catch(err => console.log(err))
     }

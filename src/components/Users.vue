@@ -3,6 +3,9 @@
 		<section class="hero is-medium is-primary is-bold">
 			<div class="hero-body">
 				<div class="container">
+          <template v-if="isLoading">
+            <h1 class="title">Loading...</h3>
+          </template>
           <h1 class="title">
             {{ title }}
           </h1>
@@ -33,7 +36,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: 'allUsers'
+      users: 'allUsers',
+      isLoading: 'isLoading'
     })
   },
   methods: {
