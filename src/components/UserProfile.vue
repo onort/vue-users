@@ -1,13 +1,13 @@
 <template>
   <div>
-		<section class="hero is-medium is-primary is-bold">
+		<section class="hero is-primary is-bold">
 			<div class="hero-body">
 				<div class="container">
           <template v-if="isLoading">
             <h1 class="title is-1">Loading...</h3>
           </template>
-          <h2 class="title is-2">{{ fullname }}</h1>
-          <h3 class="subtitle is-3">{{ user.location.city }}</h3>
+          <h2 class="title is-2">{{ fullname | capitalize }}</h1>
+          <h3 class="subtitle is-3">{{ user.location.city | capitalize }}</h3>
 				</div>
 			</div>
 		</section>
@@ -18,6 +18,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Tabs from './Tabs'
+import { capitalize } from '../helpers'
 
 export default{
   name: 'UserProfile',
@@ -32,11 +33,12 @@ export default{
       isLoading: 'isLoading'
     }),
     fullname () {
-      if (this.user.name) {
-        const { first, last } = this.user.name
-        return `${first.charAt(0).toUpperCase() + first.slice(1)} ${last.charAt(0).toUpperCase() + last.slice(1)}`
-      }
+      const { first, last } = this.user.name
+      return `${first} ${last}`
     }
+  },
+  filters: {
+    capitalize
   }
 }
 </script>

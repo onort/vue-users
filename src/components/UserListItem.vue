@@ -5,10 +5,10 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <h2 class="fullname">{{ fullname }}</h2>
-        <h4 class="location">{{ user.location.city | capitilaze }}</h4>
-        <router-link :to="profileLink">
-          <button class="button">View Profile</button>
+        <h2 class="fullname">{{ fullname | capitalize }}</h2>
+        <h4 class="location">{{ user.location.city | capitalize }}</h4>
+        <router-link :to="profileLink" class="button is-outlined">
+            <span class="icon is-small"><i class="fa fa-user-circle"></i></span> View Profile
         </router-link>
       </div>
     </div>
@@ -19,22 +19,22 @@
 </template>
 
 <script>
+import { capitalize } from '../helpers'
+
 export default{
   name: 'UserListItem',
   props: [ 'user' ],
   computed: {
     fullname () {
       const { first, last } = this.user.name
-      return `${first.charAt(0).toUpperCase() + first.slice(1)} ${last.charAt(0).toUpperCase() + last.slice(1)}`
+      return `${first} ${last}`
     },
     profileLink () {
       return `/user/${this.user.login.username}`
     }
   },
   filters: {
-    capitilaze (city) {
-      return city.charAt(0).toUpperCase() + city.slice(1)
-    }
+    capitalize
   }
 }
 </script>
@@ -53,6 +53,10 @@ export default{
 
 .list-item .location {
   font-size: 1em
+}
+
+.icon {
+  margin-right: 10px !important;
 }
 
 // .list-item:hover {
