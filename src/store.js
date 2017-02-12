@@ -33,6 +33,13 @@ export const store = new Vuex.Store({
     },
     singleUser (state, { user }) {
       state.singleUser = user
+    },
+    addNote (state, note) {
+      if (state.singleUser.notes) state.singleUser.notes.push(note)
+      else {
+        const notes = [note]
+        state.singleUser.notes = notes
+      }
     }
   },
 
@@ -54,6 +61,9 @@ export const store = new Vuex.Store({
           context.commit('loadingState', { isLoading: false })
         })
         .catch(err => console.log(err))
+    },
+    addNoteToUser (context, { note }) {
+      context.commit('addNote', note)
     }
   }
 })
