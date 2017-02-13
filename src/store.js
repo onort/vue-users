@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     users: [],
-    singleUser: { name: { first: '', last: '' }, location: { city: '' }, picture: { large: '' } },
+    singleUser: { name: { first: '', last: '' }, location: { city: '' }, picture: { large: '' }, notes: [] },
     isLoading: false
   },
 

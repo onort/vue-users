@@ -7,7 +7,7 @@
         <p class="control">
           <textarea class="textarea" placeholder="Write your note here" v-model.trim="note"></textarea>
         </p>
-        <button class="button is-primary is-pulled-right" @click="handleSave">Save</button>
+        <button class="button is-pulled-right" @click="handleSave">Save</button>
         <div class="is-clearfix"></div>
       </div>
     </div>

@@ -5,7 +5,7 @@
       <h2 class="title is-3 nav-item">VueJS Users</h2>
     </div>
     <div class="nav-right">
-      <router-link to="/" class="nav-item is-tab">Home</router-link>
+      <router-link to="/" exact class="nav-item is-tab">Home</router-link>
       <router-link to="/users" class="nav-item is-tab">Users</router-link>
     </div>
     </div>
@@ -19,5 +19,8 @@ export default {
 </script>
 
 <style>
-
+.nav-item.router-link-active {
+  border-bottom-color: #00d1b2;
+  color: #00d1b2;
+}
 </style>

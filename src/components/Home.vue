@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<section class="hero is-medium is-primary is-bold">
+		<section class="hero is-large is-dark is-bold">
 			<div class="hero-body">
 				<div class="container">
 				<h1 class="title is-1">
@@ -8,13 +8,11 @@
 				</h1>
 				<h3 class="subtitle is-3">
 					{{ subtitle}}
-				</h2>
+				</h3>
+				<router-link to="/users" class="button" >Click For Users List View</router-link>
 				</div>
 			</div>
 		</section>
-		<div class="container">
-			<router-link to="/users">Click For Users List View</router-link>
-		</div>
 	</div>
 </template>
 
@@ -31,5 +29,13 @@ export default {
 </script>
 
 <style scoped>
-
+.button {
+	margin-top: 20px;
+}
+.button:hover {
+	background: #e2e2e2;
+}
+.hero.is-dark a {
+	color: #363636;
+}
 </style>
