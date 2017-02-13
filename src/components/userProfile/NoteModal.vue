@@ -2,10 +2,10 @@
   <div class="modal is-active">
     <div class="modal-background" @click="$emit('closeModal')"></div>
     <div class="modal-content">
-      <div class="container modal-form">
+      <div class="container modal-form" @keyup.enter="handleSave">
         <label class="label title is-4">Add Note For User:</label>
         <p class="control">
-          <textarea class="textarea" placeholder="Write your note here" v-model="note"></textarea>
+          <textarea class="textarea" placeholder="Write your note here" v-model.trim="note"></textarea>
         </p>
         <button class="button is-primary is-pulled-right" @click="handleSave">Save</button>
         <div class="is-clearfix"></div>

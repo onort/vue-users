@@ -18,7 +18,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Tabs from './Tabs'
-import { capitalize } from '../helpers'
+import { capitalize } from '../../helpers'
 
 export default{
   name: 'UserProfile',

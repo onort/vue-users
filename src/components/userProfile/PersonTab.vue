@@ -32,7 +32,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { capitalize, formatDate, calculateAge } from '../helpers'
+import { capitalize, formatDate, calculateAge } from '../../helpers'
 import NoteModal from './NoteModal'
 
 export default {
@@ -64,7 +64,7 @@ export default {
       this.modalOpen = false
     },
     handleAddNote (note) {
-      this.$store.dispatch({ type: 'addNoteToUser', note })
+      if (note.length) this.$store.dispatch({ type: 'addNoteToUser', note })
       this.modalOpen = false
     }
   }

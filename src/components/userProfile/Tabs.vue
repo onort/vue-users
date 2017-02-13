@@ -13,7 +13,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { capitalize } from '../helpers'
+import { capitalize } from '../../helpers'
 import Person from './PersonTab'
 import Notes from './NotesTab'
 

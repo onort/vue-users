@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "concurrently --kill-others \"npm run api\" \"npm run dev\"",
+    "api": "nodemon server.js",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
@@ -15,6 +16,7 @@
     "axios": "^0.15.3",
     "body-parser": "^1.16.0",
     "bulma": "^0.3.1",
+    "concurrently": "^3.3.0",
     "express": "^4.14.1",
     "font-awesome": "^4.7.0",
     "vue": "^2.1.10",
