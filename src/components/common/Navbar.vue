@@ -2,7 +2,9 @@
   <nav class="nav has-shadow">
   <div class="container">
     <div class="nav-left">
-      <h2 class="title is-3 nav-item">VueJS Users</h2>
+      <router-link to="/">
+        <h2 class="title is-3 nav-item">VueJS Users</h2>
+      </router-link>
     </div>
     <div class="nav-right">
       <router-link to="/" exact class="nav-item is-tab">Home</router-link>
@@ -20,7 +22,10 @@ export default {
 
 <style>
 .nav-item.router-link-active {
-  border-bottom-color: #00d1b2;
-  color: #00d1b2;
+  border-bottom-color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 20%);
+}
+a.nav-item.is-tab:hover {
+  border-bottom-color: hsl(0, 0%, 29%) !important;
 }
 </style>

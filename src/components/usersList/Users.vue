@@ -4,7 +4,7 @@
 			<div class="hero-body">
 				<div class="container">
           <template v-if="isLoading">
-            <h1 class="title is-2">Loading...</h3>
+            <spinner></spinner>
           </template>
           <h1 class="title is-2">
             {{ title }}
@@ -24,11 +24,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Spinner from '../common/Spinner'
 import UserListItem from './UserListItem'
 
 export default {
   name: 'hello',
-  components: { UserListItem },
+  components: { Spinner, UserListItem },
   data () {
     return {
       title: 'Users List View'

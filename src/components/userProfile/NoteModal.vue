@@ -40,4 +40,7 @@ export default {
   resize: none;
   min-height: 90px;
 }
+.textarea:focus {
+  border-color: hsl(0, 0%, 60%)
+}
 </style>

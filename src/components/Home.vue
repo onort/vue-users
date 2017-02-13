@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<section class="hero is-large is-dark is-bold">
+		<section class="hero is-fullheight is-dark is-bold">
 			<div class="hero-body">
 				<div class="container">
 				<h1 class="title is-1">

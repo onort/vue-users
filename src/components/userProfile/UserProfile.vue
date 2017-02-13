@@ -4,7 +4,7 @@
 			<div class="hero-body">
 				<div class="container">
           <template v-if="isLoading">
-            <h1 class="title is-1">Loading...</h3>
+            <spinner></spinner>
           </template>
           <h2 class="title is-2">{{ fullname | capitalize }}</h1>
           <h3 class="subtitle is-3">{{ user.location.city | capitalize }}</h3>
@@ -17,8 +17,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Tabs from './Tabs'
 import { capitalize } from '../../helpers'
+import Spinner from '../common/Spinner'
+import Tabs from './Tabs'
 
 export default{
   name: 'UserProfile',
@@ -26,7 +27,7 @@ export default{
     const username = this.$route.params.username
     this.$store.dispatch({ type: 'fetchUserByUsername', username })
   },
-  components: { Tabs },
+  components: { Spinner, Tabs },
   computed: {
     ...mapGetters({
       user: 'singleUser',

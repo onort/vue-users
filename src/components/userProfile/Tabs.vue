@@ -43,5 +43,12 @@ export default {
 </script>
 
 <style scoped>
+.tabs li.is-active a {
+  color: hsl(0, 0%, 20%);
+  border-bottom-color: hsl(0, 0%, 20%);
+}
 
+.tabs li a {
+  color: #7a7a7a;
+}
 </style>
