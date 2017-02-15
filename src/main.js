@@ -8,6 +8,12 @@ import 'bulma/css/bulma.css'
 import 'font-awesome/css/font-awesome.min.css'
 
 /* eslint-disable no-new */
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
+
 new Vue({
   el: '#app',
   router,

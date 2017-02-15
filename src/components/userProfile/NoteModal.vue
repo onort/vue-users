@@ -5,7 +5,7 @@
       <div class="container modal-form" @keyup.enter="handleSave">
         <label class="label title is-4">Add Note For User:</label>
         <p class="control">
-          <textarea class="textarea" placeholder="Write your note here" v-model.trim="note"></textarea>
+          <textarea v-focus class="textarea" placeholder="Write your note here" v-model.trim="note"></textarea>
         </p>
         <button class="button is-pulled-right" @click="handleSave">Save</button>
         <div class="is-clearfix"></div>

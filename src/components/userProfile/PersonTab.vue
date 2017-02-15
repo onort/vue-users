@@ -26,7 +26,9 @@
       </router-link>
     </div>
   </div>
-  <note-modal v-if="modalOpen" @closeModal="handleCloseModal" @addNote="handleAddNote"></note-modal>
+  <transition name="fade">
+    <note-modal v-if="modalOpen" @closeModal="handleCloseModal" @addNote="handleAddNote"></note-modal>
+  </transition>
 </div>
 </template>
 
@@ -78,5 +80,11 @@ export default {
 .button.is-fullwidth {
   margin: 10px auto;
   justify-content: flex-start;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.33s ease-out;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
