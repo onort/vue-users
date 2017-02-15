@@ -44,26 +44,26 @@ export const store = new Vuex.Store({
   },
 
   actions: {
-    fetchUsers (context) {
-      context.commit('loadingState', { isLoading: true })
+    fetchUsers ({ commit }) {
+      commit('loadingState', { isLoading: true })
       usersApi.getAllUsers()
         .then(data => {
-          context.commit('recievedUsers', data)
-          context.commit('loadingState', { isLoading: false })
+          commit('recievedUsers', data)
+          commit('loadingState', { isLoading: false })
         })
         .catch(err => console.log(err))
     },
-    fetchUserByUsername (context, { username }) {
-      context.commit('loadingState', { isLoading: true })
+    fetchUserByUsername ({ commit }, { username }) {
+      commit('loadingState', { isLoading: true })
       usersApi.getUserByUsername(username)
         .then(data => {
-          context.commit('singleUser', data)
-          context.commit('loadingState', { isLoading: false })
+          commit('singleUser', data)
+          commit('loadingState', { isLoading: false })
         })
         .catch(err => console.log(err))
     },
-    addNoteToUser (context, { note }) {
-      context.commit('addNote', note)
+    addNoteToUser ({ commit }, { note }) {
+      commit('addNote', note)
     }
   }
 })

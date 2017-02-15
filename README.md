@@ -13,7 +13,7 @@ npm start
 
 ### TODO:
 
-- [ ] Deploy a demo application to Heroku
+- [ ] Deploy a demo application
 - [ ] Switch to mongodb
 - [ ] Add create, update, delete contact functionality
-
+- [ ] Unit tests
