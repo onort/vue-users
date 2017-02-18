@@ -55,6 +55,10 @@ export default{
   border: 1px solid #b9b9b9;
   border-radius: 5px;
 }
+.image img {
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+}
 .list-item .fullname {
   font-size: 1.5em
 }
