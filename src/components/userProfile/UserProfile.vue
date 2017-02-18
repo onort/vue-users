@@ -1,8 +1,8 @@
 <template>
   <div>
 		<section class="hero is-dark is-bold">
-			<div class="hero-body">
-				<div class="container">
+			<div class="hero-body columns">
+				<div class="container column is-10 is-offset-1">
           <template v-if="isLoading">
             <spinner></spinner>
           </template>
@@ -45,7 +45,7 @@ export default{
 </script>
 
 <style scoped>
-@media (max-width: 768px) {
+@media screen and  (max-width: 768px) {
   .hero-body {
     padding: 2rem;
   }

@@ -38,4 +38,7 @@ export default {
 .hero.is-dark a {
 	color: #363636;
 }
+.container {
+	margin-left: 8.33333%;
+}
 </style>
