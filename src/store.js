@@ -7,9 +7,10 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    users: [],
+    isLoading: false,
+    menuVisible: false,
     singleUser: { name: { first: '', last: '' }, location: { city: '' }, picture: { large: '' }, notes: [] },
-    isLoading: false
+    users: []
   },
 
   getters: {
@@ -21,6 +22,9 @@ export const store = new Vuex.Store({
     },
     singleUser (state) {
       return state.singleUser
+    },
+    isMenuVisible (state) {
+      return state.menuVisible
     }
   },
 
@@ -40,6 +44,13 @@ export const store = new Vuex.Store({
         const notes = [note]
         state.singleUser.notes = notes
       }
+    },
+    toggleMenu (state, close) {
+      if (close) {
+        state.menuVisible = false
+        return
+      }
+      state.menuVisible = !state.menuVisible
     }
   },
 
@@ -64,6 +75,9 @@ export const store = new Vuex.Store({
     },
     addNoteToUser ({ commit }, { note }) {
       commit('addNote', note)
+    },
+    toggleMenu ({ commit }, close) {
+      commit('toggleMenu', close)
     }
   }
 })

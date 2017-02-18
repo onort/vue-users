@@ -23,17 +23,17 @@
 <script>
 export default {
   name: 'Navbar',
-  data () {
-    return {
-      menuVisible: false
-    }
-  },
   methods: {
     toggleMenu () {
-      this.menuVisible = !this.menuVisible
+      this.$store.dispatch('toggleMenu', 0)
     },
     closeMenu () {
-      if (this.menuVisible) this.menuVisible = false
+      this.$store.dispatch('toggleMenu', 1)
+    }
+  },
+  computed: {
+    menuVisible () {
+      return this.$store.getters.isMenuVisible
     }
   }
 }
