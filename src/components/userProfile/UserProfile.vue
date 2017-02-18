@@ -6,7 +6,7 @@
           <template v-if="isLoading">
             <spinner></spinner>
           </template>
-          <h2 class="title is-2">{{ fullname | capitalize }}</h1>
+          <h2 class="title is-2">{{ fullname | capitalize }}</h2>
           <h3 class="subtitle is-3">{{ user.location.city | capitalize }}</h3>
 				</div>
 			</div>
@@ -44,6 +44,19 @@ export default{
 }
 </script>
 
-<style>
-
+<style scoped>
+@media (max-width: 768px) {
+  .hero-body {
+    padding: 2rem;
+  }
+  .title.is-2 {
+    font-size: 1.75rem;
+  }
+  .subtitle.is-3 {
+    font-size: 1.25rem;
+  }
+  .button.is-fullwidth {
+    justify-content: center;
+  }
+}
 </style>

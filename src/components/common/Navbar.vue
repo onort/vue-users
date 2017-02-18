@@ -6,17 +6,36 @@
         <h2 class="title is-3 nav-item">VueJS Users</h2>
       </router-link>
     </div>
-    <div class="nav-right">
-      <router-link to="/" exact class="nav-item is-tab">Home</router-link>
-      <router-link to="/users" class="nav-item is-tab">Users</router-link>
-    </div>
+      <div :class="[ menuVisible ? 'nav-menu is-active nav-right' : 'nav-menu nav-right' ]"
+           @click="closeMenu">
+        <router-link to="/" exact class="nav-item">Home</router-link>
+        <router-link to="/users" class="nav-item">Users</router-link>
+      </div>
+     <span class="nav-toggle" @click="toggleMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  data () {
+    return {
+      menuVisible: false
+    }
+  },
+  methods: {
+    toggleMenu () {
+      this.menuVisible = !this.menuVisible
+    },
+    closeMenu () {
+      if (this.menuVisible) this.menuVisible = false
+    }
+  }
 }
 </script>
 
@@ -27,5 +46,10 @@ export default {
 }
 a.nav-item.is-tab:hover {
   border-bottom-color: hsl(0, 0%, 29%) !important;
+}
+@media (max-width: 768px) {
+  .nav-menu .nav-item {
+    justify-content: center;
+  }
 }
 </style>

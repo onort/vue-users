@@ -1,6 +1,6 @@
 <template>
-  <div class="columns">
-    <div class="column container is-8 is-offset-2">
+  <div class="columns is-mobile">
+    <div class="column is-8 is-offset-2">
       <ul class="notes">
         <li v-if="user.notes.length" v-for="note in user.notes">
           {{ note }}
@@ -27,9 +27,10 @@ export default {
 <style scoped>
 .notes {
   list-style: circle;
+  padding-top: 1rem;
 }
 
 .notes li {
-  line-height: 2em;
+  line-height: 2rem;
 }
 </style>

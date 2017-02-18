@@ -13,7 +13,7 @@
 			</div>
 		</section>
     <template v-for="user in users">
-     <div class="columns is-mobile users-list">
+     <div class="columns users-list">
         <div class="column is-8-tablet is-offset-2-tablet is-10-mobile is-offset-1-mobile">
         <user-list-item :user="user"></user-list-item>
         </div>

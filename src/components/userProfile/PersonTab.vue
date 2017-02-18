@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="columns container">
-    <div class="column is-2 is-offset-1">
+    <div class="column is-2 is-offset-1 is-8-mobile is-offset-2-mobile">
       <figure class="1by1 has-text-centered"><img :src="user.picture.large" alt=""></figure>
       <button class="button is-outlined is-fullwidth" @click="modalOpen = true">
         <span class="icon is-small"><i class="fa fa-sticky-note"></i></span>Add Note
@@ -10,7 +10,7 @@
         <span class="icon is-small"><i class="fa fa-comment"></i></span>Message
       </button>
     </div>
-    <div class="column is-8 is-offset-1">
+    <div class="column is-8 is-offset-1 is-10-mobile is-offset-1-mobile">
       <table class="table">
         <tr><th>Name</th><td>{{ fullname | capitalize }}</td></tr>
         <tr><th>Age</th><td>{{ age }}</td></tr>
@@ -27,7 +27,10 @@
     </div>
   </div>
   <transition name="fade">
-    <note-modal v-if="modalOpen" @closeModal="handleCloseModal" @addNote="handleAddNote"></note-modal>
+    <note-modal v-if="modalOpen" 
+      @closeModal="handleCloseModal" 
+      @addNote="handleAddNote" >
+    </note-modal>
   </transition>
 </div>
 </template>
@@ -86,5 +89,10 @@ export default {
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+@media (max-width: 768px) {
+  .button.is-fullwidth {
+    justify-content: center
+  }
 }
 </style>
