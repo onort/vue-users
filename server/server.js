@@ -1,12 +1,12 @@
 import express from 'express'
 import middlewares from './middlewares'
-import db from './db'
+import mLab from './mLab'
 
 import { ContactRoutes } from './modules'
 
 const app = express()
 
-db()
+mLab()
 middlewares(app)
 
 app.use('/api', ContactRoutes)
