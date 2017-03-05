@@ -7,3 +7,12 @@ export const getAllContacts = async (req, res) => {
     return res.status(400).json({ error: true, e })
   }
 }
+
+export const getContactByUsername = async (req, res) => {
+  const { username } = req.params
+  try {
+    return res.status(200).json({ contact: await Contact.findOne({ username }) })
+  } catch (e) {
+    return res.status(400).json({ error: true, e })
+  }
+}

@@ -18,7 +18,7 @@ export default {
   name: 'NotesTab',
   computed: {
     ...mapGetters({
-      user: 'singleUser'
+      user: 'singleContact'
     })
   }
 }

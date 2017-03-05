@@ -1,22 +1,17 @@
 import axios from 'axios'
 
 class usersApi {
-  static getAllUsers () {
-    return new Promise((resolve, reject) => {
-      axios.get('http://localhost:3000/api/users')
-        .then(res => resolve(res.data))
-        .catch(err => reject(err))
-    })
+
+  static async getAllContacts () {
+    return await axios.get('http://localhost:3000/api/contacts')
+      .then(res => res.data)
+      .catch(err => err)
   }
 
-  static getUserByUsername (username) {
-    return new Promise((resolve, reject) => {
-      axios.get(`http://localhost:3000/api/user/${username}`)
-        .then(res => {
-          resolve(res.data)
-        })
-        .catch(err => reject(err))
-    })
+  static async getContactByUsername (username) {
+    return await axios.get(`http://localhost:3000/api/contact/${username}`)
+      .then(res => res.data)
+      .catch(err => err)
   }
 }
 

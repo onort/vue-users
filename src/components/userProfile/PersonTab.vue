@@ -2,7 +2,7 @@
 <div>
   <div class="columns container">
     <div class="column is-2 is-offset-1 is-8-mobile is-offset-2-mobile">
-      <figure class="1by1 has-text-centered"><img :src="user.picture.large" alt=""></figure>
+      <figure class="1by1 has-text-centered"><img :src="user.picture" alt=""></figure>
       <button class="button is-outlined is-fullwidth" @click="modalOpen = true">
         <span class="icon is-small"><i class="fa fa-sticky-note"></i></span>Add Note
       </button>
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'singleUser'
+      user: 'singleContact'
     }),
     fullname () {
       const { first, last } = this.user.name
@@ -69,7 +69,7 @@ export default {
       this.modalOpen = false
     },
     handleAddNote (note) {
-      if (note.length) this.$store.dispatch({ type: 'addNoteToUser', note })
+      if (note.length) this.$store.dispatch({ type: 'addNoteToContact', note })
       this.modalOpen = false
     }
   }

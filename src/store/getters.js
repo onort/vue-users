@@ -2,11 +2,11 @@ const getters = {
   isLoading (state) {
     return state.isLoading
   },
-  allUsers (state) {
-    return state.users
+  allContacts (state) {
+    return state.contacts
   },
-  singleUser (state) {
-    return state.singleUser
+  singleContact (state) {
+    return state.singleContact
   },
   isMenuVisible (state) {
     return state.menuVisible

@@ -1,25 +1,25 @@
 import usersApi from '../api/usersApi'
 
 const actions = {
-  fetchUsers ({ commit }) {
+  fetchContacts ({ commit }) {
     commit('loadingState', { isLoading: true })
-    usersApi.getAllUsers()
+    usersApi.getAllContacts()
       .then(data => {
-        commit('recievedUsers', data)
+        commit('receivedContacts', data)
         commit('loadingState', { isLoading: false })
       })
       .catch(err => console.log(err))
   },
-  fetchUserByUsername ({ commit }, { username }) {
+  fetchContactByUsername ({ commit }, { username }) {
     commit('loadingState', { isLoading: true })
-    usersApi.getUserByUsername(username)
+    usersApi.getContactByUsername(username)
       .then(data => {
-        commit('singleUser', data)
+        commit('singleContact', data)
         commit('loadingState', { isLoading: false })
       })
       .catch(err => console.log(err))
   },
-  addNoteToUser ({ commit }, { note }) {
+  addNoteToContact ({ commit }, { note }) {
     commit('addNote', note)
   },
   toggleMenu ({ commit }, close) {

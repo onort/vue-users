@@ -2,14 +2,14 @@ const mutations = {
   loadingState (state, { isLoading }) {
     state.isLoading = isLoading
   },
-  recievedUsers (state, data) {
-    state.users = data.users
+  receivedContacts (state, { contacts }) {
+    state.contacts = contacts
   },
-  singleUser (state, { user }) {
-    state.singleUser = user
+  singleContact (state, { contact }) {
+    state.singleContact = contact
   },
   addNote (state, note) {
-    if (state.singleUser.notes) state.singleUser.notes.push(note)
+    if (state.singleContact.notes) state.singleContact.notes.push(note)
     else {
       const notes = [note]
       state.singleUser.notes = notes

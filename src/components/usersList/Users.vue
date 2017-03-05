@@ -57,7 +57,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: 'allUsers',
+      users: 'allContacts',
       isLoading: 'isLoading'
     }),
     pages () {
@@ -71,8 +71,8 @@ export default {
     }
   },
   methods: {
-    fetchUsers () {
-      this.$store.dispatch({ type: 'fetchUsers' })
+    fetchContacts () {
+      this.$store.dispatch({ type: 'fetchContacts' })
     },
     nextPage () {
       if (this.currentPage === this.pages.length - 1) return
@@ -87,7 +87,7 @@ export default {
     }
   },
   created () {
-    this.fetchUsers()
+    this.fetchContacts()
   }
 }
 </script>

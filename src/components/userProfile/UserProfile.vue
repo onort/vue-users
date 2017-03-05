@@ -25,12 +25,12 @@ export default{
   name: 'UserProfile',
   beforeMount () {
     const username = this.$route.params.username
-    this.$store.dispatch({ type: 'fetchUserByUsername', username })
+    this.$store.dispatch({ type: 'fetchContactByUsername', username })
   },
   components: { Spinner, Tabs },
   computed: {
     ...mapGetters({
-      user: 'singleUser',
+      user: 'singleContact',
       isLoading: 'isLoading'
     }),
     fullname () {

@@ -4,7 +4,7 @@
       'column is-5-tablet is-offset-1-tablet is-10-mobile is-offset-1-mobile' ]">
     <article class="media list-item">
       <figure class="media-left">
-        <p class="image is-96x96"><img :src="user.picture.large" :alt="user.name.first"></p>
+        <p class="image is-96x96"><img :src="user.picture" :alt="user.name.first"></p>
       </figure>
       <div class="media-content ">
         <div class="content">
@@ -36,7 +36,7 @@ export default{
       return `${first} ${last}`
     },
     profileLink () {
-      return `/user/${this.user.login.username}`
+      return `/user/${this.user.username}`
     }
   },
   filters: {

@@ -11,8 +11,8 @@ export const store = new Vuex.Store({
   state: {
     isLoading: false,
     menuVisible: false,
-    singleUser: { name: { first: '', last: '' }, location: { city: '' }, picture: { large: '' }, notes: [] },
-    users: []
+    singleContact: { name: { first: '', last: '' }, location: { city: '' }, picture: '', notes: [] },
+    contacts: []
   },
   getters,
   mutations,
