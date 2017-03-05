@@ -9,7 +9,7 @@
 				<h3 class="subtitle is-3">
 					{{ subtitle}}
 				</h3>
-				<router-link to="/users" class="button" >Click For Users List View</router-link>
+				<router-link to="/users" class="button" >Show Contacts</router-link>
 				</div>
 			</div>
 		</section>
@@ -21,8 +21,8 @@ export default {
   name: 'hello',
   data () {
     return {
-      title: 'VueJS + Node',
-      subtitle: 'User Data'
+      title: 'VueJS Contacts',
+      subtitle: 'Built with Vue, Express, MongoDB and Bulma'
     }
   }
 }

@@ -9,7 +9,9 @@
       <div class="media-content ">
         <div class="content">
           <h2 class="fullname">{{ fullname | capitalize }}</h2>
-          <h4 class="location">{{ user.location.city | capitalize }}</h4>
+          <h4 class="location"> 
+            From <span>{{ user.location.city | capitalize }}</span>, {{ age }} years old
+          </h4>
           <div class="item-actions has-text-right">
             <router-link :to="profileLink" class="button is-outlined">
               <span class="icon is-small"><i class="fa fa-user-circle"></i></span> View Profile
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-import { capitalize } from '../../helpers'
+import { capitalize, calculateAge } from '../../helpers'
 
 export default{
   name: 'UserListItem',
@@ -37,6 +39,9 @@ export default{
     },
     profileLink () {
       return `/user/${this.user.username}`
+    },
+    age () {
+      return calculateAge(new Date(this.user.dob))
     }
   },
   filters: {
@@ -54,6 +59,13 @@ export default{
   padding: 20px;
   border: 1px solid #b9b9b9;
   border-radius: 5px;
+}
+.location {
+  font-style: italic;
+  color: #7b7b7b;
+}
+.location span {
+  font-weight: 600;
 }
 .image img {
   border: 1px solid #dbdbdb;
@@ -79,6 +91,9 @@ export default{
     width: 100%;
     margin-bottom: .5rem;
   }
+  .media-left {
+    margin-top: 1rem;
+  }
 }
 @media screen and (max-width: 768px) {
   .item-actions {
@@ -88,4 +103,14 @@ export default{
     width: auto;
   }
 }
+@media screen and (max-width: 550px) {
+  .item-actions {
+    text-align: center;
+  }
+  .item-actions .button {
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+}
+
 </style>

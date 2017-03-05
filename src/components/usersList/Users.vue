@@ -50,7 +50,7 @@ export default {
   components: { Paginator, Spinner, UserListItem },
   data () {
     return {
-      title: 'Users List View',
+      title: 'My Contacts',
       userPerPage: 10,
       currentPage: 0
     }
